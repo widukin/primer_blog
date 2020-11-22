@@ -20,6 +20,10 @@ footer, header, hgroup, main, menu, nav, section {display: block;}
 
 /* html { background-color: #ebf6e5; }  */
 
+html, body {
+  height:100%;
+}
+
 body { 
   font-family: Helvetica, Arial, sans-serif; 
   color: #220d09; 
@@ -44,7 +48,7 @@ body::before {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  opacity: 0.5;
+  opacity: 0.4;
   z-index: -10;
 }
 
@@ -95,6 +99,35 @@ a img{
   color: rgba(32, 13, 9, 0.8);
 }
 
+.scroller {
+  overflow-y: scroll;
+  scrollbar-color: rgba(32, 13, 9, 0.8) rgba(170, 90, 17, 0.2);
+  scrollbar-width: thin;
+}
+
+/* WebKit Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(170, 90, 17, 0.7); 
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(32, 13, 9, 0.7); 
+  -webkit-box-shadow: inset 0 0 6px rgba(32, 13, 9, 0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+background: rgba(32, 13, 9, 0.4); 
+}
+
 a {
   text-decoration: none;
   -webkit-text-decoration-skip: objects;
@@ -110,7 +143,7 @@ a.link {
   font-weight: 600;
 }
 
-/* used for header navigation */
+/* used for header and footer navigation */
 .blur {
   box-shadow:0 2px 3px 0px rgba(34,13,9,0.25);
   transition:.2s all; 
@@ -172,7 +205,7 @@ header nav {
   width: auto;
   /* pushes the nav box to the left so it fits inside the body */
   /* margin-right: 20px; */
-  border: 1px solid red;}
+}
 
 header nav ul, footer nav ul {
   margin: 0 auto;
@@ -182,6 +215,7 @@ header nav ul, footer nav ul {
 header nav ul li, footer nav ul li {
   display: inline-block;
   margin: 1px 1px;
+  background-color: rgb(235, 246, 229, 60%);
 }
 
 /* header nav: display table to vertical allign ul in center */
@@ -197,7 +231,7 @@ header nav ul li {
   height: 100px;
   width: 100px;
   vertical-align: middle;
-  border: 1px solid #220d09;
+  border: 1px solid rgb(34, 13, 9, 30%);
   border-radius: 20px;
 }
 
@@ -212,9 +246,45 @@ header nav ul li {
   width: 100px;
 } */
 
+aside nav {
+  text-align: right;
+  font-weight: bold;
+}
+
+aside nav ul li {
+  width: 100%;
+  padding: 20px 10%;
+}
+
+aside nav ul li a {
+  display: block;
+  transition: all ease-out 300ms;
+  color: rgba(32, 13, 9, 0.55);
+}
+
+aside nav ul li a::after {
+  content: '';
+      position: absolute;
+      width: 100%;
+      height: 0.15em;
+      background: black;
+      left: 0;
+      bottom: -0.5rem;
+      /* background-image: linear-gradient(to right, rgba(170, 90, 17, 1), rgba(32, 13, 9, 0.1)); */
+      background-image: linear-gradient(to right, rgba(234, 218, 97, 1), rgba(170, 90, 17, 1), rgba(32, 13, 9, 1));
+      opacity: 0.55;
+}
+
+aside nav ul li:hover a, aside nav ul li:focus a{
+  color: rgba(32, 13, 9, 0.9);
+}
+
+aside nav ul li:hover a::after, aside nav ul li:active a::after {
+  opacity: 1;
+}
+
 footer nav ul li {
   padding: 5px 10px;
-  background-color: #ebf6e5;
   border-radius: 20px;
 }
 
@@ -222,13 +292,6 @@ footer nav ul li {
 /*-------------------------------------------    
     Header
 -------------------------------------------*/
-/* header {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  z-index: 1;
-} */
 header {
   position: fixed;
   top: 10px;
@@ -243,18 +306,27 @@ header {
 
 main {
   position: relative;
-  margin-top: 134px;
-  margin-bottom: 80px;
+  margin-top: 124px;
+  /* margin-bottom: 70px; */
+  /* scrollable container heigth */
+  height: calc(100% - 194px);
+}
+
+@media screen and (max-width: 810px) {
+  main {
+    height: calc(100% - 214px);
+  }
 }
 
 section {
-  width: 80%;
+  width: 79.5%;
   float: right;
   /* background-color: gray; */
   padding: 20px;
   border: 1px solid #220d09;
   border-radius: 20px;
   margin-bottom: 10px;
+  margin-right: 0.5%;
 }
 
 section:last-of-type {  
@@ -274,13 +346,8 @@ section figure img, section figure figcaption {
 aside {
   position: absolute;
   top: 0;
-  bottom: 0;
   width: 20%;
   float: left;
-  border: 1px solid rebeccapurple;
-  border-radius: 20px;
-
-  padding: 10px;
 }
 
 /*-------------------------------------------    
@@ -288,9 +355,6 @@ aside {
 -------------------------------------------*/
 
 footer {
-  /* background-color: white; */
-
-  border: 1px solid black;
   position: fixed;
   bottom: 10px;
   width: 100%;
