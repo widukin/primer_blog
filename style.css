@@ -39,7 +39,7 @@ body::before {
   right: 0px;
   bottom: 0px;
   left: 0px;
-  background-image: url(img/golden_leaves.jpg);
+  background-image: url(./img/golden_leaves.jpg);
   background-clip: border-box;
   background-repeat:  no-repeat;
   background-attachment: fixed;
