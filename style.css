@@ -201,18 +201,18 @@ a.highlight:hover::after, a.highlight:focus::after {
     Navigation
 -------------------------------------------*/
 
-header nav {
+header .nav {
   width: auto;
   /* pushes the nav box to the left so it fits inside the body */
   /* margin-right: 20px; */
 }
 
-header nav ul, footer nav ul {
+header .nav ul, footer .nav ul {
   margin: 0 auto;
   text-align: center;
 }
 
-header nav ul li, footer nav ul li {
+header .nav ul li, footer .nav ul li {
   display: inline-block;
   margin: 1px 1px;
   background-color: rgb(235, 246, 229, 60%);
@@ -220,13 +220,13 @@ header nav ul li, footer nav ul li {
 
 /* header nav: display table to vertical allign ul in center */
 
-header nav ul {
+header .nav ul {
   display: table;
   border-collapse: separate;
   border-spacing: 10px;
 }
 
-header nav ul li {
+header .nav ul li {
   display: table-cell;
   height: 100px;
   width: 100px;
@@ -246,23 +246,23 @@ header nav ul li {
   width: 100px;
 } */
 
-aside nav {
+aside .nav {
   text-align: right;
   font-weight: bold;
 }
 
-aside nav ul li {
+aside .nav ul li {
   width: 100%;
   padding: 20px 10%;
 }
 
-aside nav ul li a {
+aside .nav ul li a {
   display: block;
   transition: all ease-out 300ms;
   color: rgba(32, 13, 9, 0.55);
 }
 
-aside nav ul li a::after {
+aside .nav ul li a::after {
   content: '';
       position: absolute;
       width: 100%;
@@ -275,15 +275,15 @@ aside nav ul li a::after {
       opacity: 0.55;
 }
 
-aside nav ul li:hover a, aside nav ul li:focus a{
+aside .nav ul li:hover a, aside .nav ul li:focus a{
   color: rgba(32, 13, 9, 0.9);
 }
 
-aside nav ul li:hover a::after, aside nav ul li:active a::after {
+aside .nav ul li:hover a::after, aside .nav ul li:active a::after {
   opacity: 1;
 }
 
-footer nav ul li {
+footer .nav ul li {
   padding: 5px 10px;
   border-radius: 20px;
 }
